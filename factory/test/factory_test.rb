@@ -10,9 +10,7 @@ describe CashMachineServiceFactory do
 
   it "allow withdraw cash with itau" do
     service = CashMachineServiceFactory.for itau
-    service.withdraw_cash itau, 500
-
-    # no assertion, just test it doesn't throw an error
+    service.withdraw_cash(itau, 500).must_equal "R$ 500.0 withdrawn with success!"
   end
 
   it "allow withdraw cash with bradesco" do
